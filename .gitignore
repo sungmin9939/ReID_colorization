@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 datasets/
 checkpoint/
+train_result/
 # C extensions
 *.so
 

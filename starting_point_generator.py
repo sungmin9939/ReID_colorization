@@ -5,7 +5,7 @@ from einops.layers.torch import Rearrange
 from torchvision import transforms
 import argparse
 from models.transformers_MA import Trans_Colorization
-
+import torchsummary
 parser = argparse.ArgumentParser()
 parser.add_argument('--preconv',default='resnet', type=str)
 parser.add_argument('--dropout',default=0.5, type=float)
@@ -35,12 +35,10 @@ opt = parser.parse_args()
 device = torch.device('cuda:0')
 
 
-model = Trans_Colorization(opt)
+model = Trans_Colorization(opt).to(device)
 torch.save(model.state_dict(), './checkpoint/start_color.pth')
 
-input = torch.randn(2,3,256,128)
-output = model(input)
-print(output[1].shape)
+print(torchsummary.summary(model, (3,128,64)))
 
 
 '''

@@ -1,4 +1,4 @@
-from .contextual import ContextualLoss
+from .contextual import ContextualLoss, Perceptual
 from .contextual_bilateral import ContextualBilateralLoss
 
-__all__ = ['ContextualLoss', 'ContextualBilateralLoss']
+__all__ = ['ContextualLoss', 'ContextualBilateralLoss', 'Perceptual']
